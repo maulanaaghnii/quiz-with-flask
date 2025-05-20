@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, request, session
+from flask import render_template, flash, redirect, url_for, request, session, jsonify
 from app import app
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, QuizForm
 from flask_login import current_user, login_user, logout_user
@@ -13,48 +13,74 @@ from datetime import datetime, timedelta
 import os
 from config import Config
 
-def get_weather_data():
+def get_weather_data(city='Jakarta'):
     API_KEY = Config.OPENWEATHERMAP_API_KEY
     if not API_KEY:
         return {
-            'today': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi'},
-            'tomorrow': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi'},
-            'yesterday': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi'}
+            'today': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi', 'time': 'N/A', 'day': 'N/A'},
+            'tomorrow': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi', 'time': 'N/A', 'day': 'N/A'},
+            'yesterday': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi', 'time': 'N/A', 'day': 'N/A'}
         }
-    
-    CITY = 'Jakarta'  # Kota default
     
     try:
         # Data cuaca hari ini
-        today_url = f'http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric'
+        today_url = f'http://api.openweathermap.org/data/2.5/weather?q={city},ID&appid={API_KEY}&units=metric'
         today_response = requests.get(today_url)
         today_data = today_response.json()
         
         # Data cuaca 5 hari ke depan
-        forecast_url = f'http://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API_KEY}&units=metric'
+        forecast_url = f'http://api.openweathermap.org/data/2.5/forecast?q={city},ID&appid={API_KEY}&units=metric'
         forecast_response = requests.get(forecast_url)
         forecast_data = forecast_response.json()
         
         # Validasi response
         if today_response.status_code != 200 or forecast_response.status_code != 200:
             return {
-                'today': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca'},
-                'tomorrow': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca'},
-                'yesterday': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca'}
+                'today': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca', 'time': 'N/A', 'day': 'N/A'},
+                'tomorrow': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca', 'time': 'N/A', 'day': 'N/A'},
+                'yesterday': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca', 'time': 'N/A', 'day': 'N/A'}
             }
+        
+        # Konversi timestamp ke datetime dan format hari
+        def format_datetime(timestamp):
+            dt = datetime.fromtimestamp(timestamp)
+            # Daftar nama hari dalam bahasa Indonesia
+            hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']
+            # Daftar nama bulan dalam bahasa Indonesia
+            bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 
+                    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+            
+            # Format: "Senin, 15 Januari 2024 (08:00 - 12:00)"
+            hari_str = hari[dt.weekday()]
+            tanggal = dt.strftime('%d')
+            bulan_str = bulan[dt.month - 1]
+            tahun = dt.strftime('%Y')
+            jam = dt.strftime('%H:%M')
+            
+            # Hitung rentang jam (3 jam)
+            end_time = dt + timedelta(hours=3)
+            end_jam = end_time.strftime('%H:%M')
+            
+            return f"{hari_str}, {tanggal} {bulan_str} {tahun} ({jam} - {end_jam})"
         
         weather = {
             'today': {
                 'temp': round(today_data['main']['temp']),
-                'description': today_data['weather'][0]['description']
+                'description': today_data['weather'][0]['description'],
+                'time': format_datetime(today_data['dt']),
+                'day': datetime.fromtimestamp(today_data['dt']).strftime('%A')
             },
             'tomorrow': {
                 'temp': round(forecast_data['list'][8]['main']['temp']),
-                'description': forecast_data['list'][8]['weather'][0]['description']
+                'description': forecast_data['list'][8]['weather'][0]['description'],
+                'time': format_datetime(forecast_data['list'][8]['dt']),
+                'day': datetime.fromtimestamp(forecast_data['list'][8]['dt']).strftime('%A')
             },
             'yesterday': {
                 'temp': round(forecast_data['list'][0]['main']['temp']),
-                'description': forecast_data['list'][0]['weather'][0]['description']
+                'description': forecast_data['list'][0]['weather'][0]['description'],
+                'time': format_datetime(forecast_data['list'][0]['dt']),
+                'day': datetime.fromtimestamp(forecast_data['list'][0]['dt']).strftime('%A')
             }
         }
         
@@ -63,9 +89,9 @@ def get_weather_data():
     except Exception as e:
         print(f"Error getting weather data: {str(e)}")
         return {
-            'today': {'temp': 'N/A', 'description': 'Terjadi kesalahan'},
-            'tomorrow': {'temp': 'N/A', 'description': 'Terjadi kesalahan'},
-            'yesterday': {'temp': 'N/A', 'description': 'Terjadi kesalahan'}
+            'today': {'temp': 'N/A', 'description': 'Terjadi kesalahan', 'time': 'N/A', 'day': 'N/A'},
+            'tomorrow': {'temp': 'N/A', 'description': 'Terjadi kesalahan', 'time': 'N/A', 'day': 'N/A'},
+            'yesterday': {'temp': 'N/A', 'description': 'Terjadi kesalahan', 'time': 'N/A', 'day': 'N/A'}
         }
 
 @app.route('/')
@@ -78,11 +104,15 @@ def index():
         sa.func.coalesce(sa.func.sum(Assessment.score), 0).label('total_score')
     ).outerjoin(Assessment, Assessment.user_id == User.id).group_by(User.id).order_by(sa.desc('total_score')).all()
     
+    # Ambil kota dari query parameter, default ke Jakarta
+    city = request.args.get('city', 'Jakarta')
+    
     # Ambil data cuaca
-    weather = get_weather_data()
+    weather = get_weather_data(city)
     
     posts = []
-    return render_template('index.html', title='Home Page', posts=posts, scoreboard=scoreboard, weather=weather)
+    return render_template('index.html', title='Home Page', posts=posts, scoreboard=scoreboard, 
+                         weather=weather, city=city)
 
 @app.route('/quiz', methods=['GET', 'POST'])
 @login_required

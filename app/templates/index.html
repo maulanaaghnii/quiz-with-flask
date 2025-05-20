@@ -15,7 +15,32 @@
                         
                         <!-- Ramalan Cuaca -->
                         <div class="weather-section mt-4">
-                            <h4 class="mb-3">Ramalan Cuaca Jakarta</h4>
+                            <h4 class="mb-3">Ramalan Cuaca {{ city }}</h4>
+                            
+                            <!-- Form Input Kota -->
+                            <form method="GET" action="{{ url_for('index') }}" class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <select name="city" id="city" class="form-select">
+                                            <option value="">Pilih Kota</option>
+                                            <option value="Jakarta" {% if city == 'Jakarta' %}selected{% endif %}>Jakarta</option>
+                                            <option value="Surabaya" {% if city == 'Surabaya' %}selected{% endif %}>Surabaya</option>
+                                            <option value="Bandung" {% if city == 'Bandung' %}selected{% endif %}>Bandung</option>
+                                            <option value="Medan" {% if city == 'Medan' %}selected{% endif %}>Medan</option>
+                                            <option value="Semarang" {% if city == 'Semarang' %}selected{% endif %}>Semarang</option>
+                                            <option value="Palembang" {% if city == 'Palembang' %}selected{% endif %}>Palembang</option>
+                                            <option value="Makassar" {% if city == 'Makassar' %}selected{% endif %}>Makassar</option>
+                                            <option value="Bontang" {% if city == 'Bontang' %}selected{% endif %}>Bontang</option>
+                                            <option value="Balikpapan" {% if city == 'Balikpapan' %}selected{% endif %}>Balikpapan</option>
+                                            <option value="Samarinda" {% if city == 'Samarinda' %}selected{% endif %}>Samarinda</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn btn-primary w-100">Cari</button>
+                                    </div>
+                                </div>
+                            </form>
+                            
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="card bg-primary-lt">
@@ -24,6 +49,7 @@
                                             <div class="weather-info">
                                                 <h2 class="temperature mb-2">{{ weather.yesterday.temp }}°C</h2>
                                                 <p class="description text-muted">{{ weather.yesterday.description }}</p>
+                                                <p class="time text-muted small">{{ weather.yesterday.time }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -35,6 +61,7 @@
                                             <div class="weather-info">
                                                 <h2 class="temperature mb-2">{{ weather.today.temp }}°C</h2>
                                                 <p class="description text-muted">{{ weather.today.description }}</p>
+                                                <p class="time text-muted small">{{ weather.today.time }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -46,6 +73,7 @@
                                             <div class="weather-info">
                                                 <h2 class="temperature mb-2">{{ weather.tomorrow.temp }}°C</h2>
                                                 <p class="description text-muted">{{ weather.tomorrow.description }}</p>
+                                                <p class="time text-muted small">{{ weather.tomorrow.time }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -90,4 +118,7 @@
 
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
 {% endblock %}
