@@ -19,7 +19,7 @@ def get_weather_data(city='Jakarta'):
         return {
             'today': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi', 'time': 'N/A', 'day': 'N/A'},
             'tomorrow': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi', 'time': 'N/A', 'day': 'N/A'},
-            'yesterday': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi', 'time': 'N/A', 'day': 'N/A'}
+            'day_after_tomorrow': {'temp': 'N/A', 'description': 'API Key tidak dikonfigurasi', 'time': 'N/A', 'day': 'N/A'}
         }
     
     try:
@@ -38,7 +38,7 @@ def get_weather_data(city='Jakarta'):
             return {
                 'today': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca', 'time': 'N/A', 'day': 'N/A'},
                 'tomorrow': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca', 'time': 'N/A', 'day': 'N/A'},
-                'yesterday': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca', 'time': 'N/A', 'day': 'N/A'}
+                'day_after_tomorrow': {'temp': 'N/A', 'description': 'Gagal mengambil data cuaca', 'time': 'N/A', 'day': 'N/A'}
             }
         
         # Konversi timestamp ke datetime dan format hari
@@ -76,11 +76,11 @@ def get_weather_data(city='Jakarta'):
                 'time': format_datetime(forecast_data['list'][8]['dt']),
                 'day': datetime.fromtimestamp(forecast_data['list'][8]['dt']).strftime('%A')
             },
-            'yesterday': {
-                'temp': round(forecast_data['list'][0]['main']['temp']),
-                'description': forecast_data['list'][0]['weather'][0]['description'],
-                'time': format_datetime(forecast_data['list'][0]['dt']),
-                'day': datetime.fromtimestamp(forecast_data['list'][0]['dt']).strftime('%A')
+            'day_after_tomorrow': {
+                'temp': round(forecast_data['list'][16]['main']['temp']),
+                'description': forecast_data['list'][16]['weather'][0]['description'],
+                'time': format_datetime(forecast_data['list'][16]['dt']),
+                'day': datetime.fromtimestamp(forecast_data['list'][16]['dt']).strftime('%A')
             }
         }
         
@@ -91,7 +91,7 @@ def get_weather_data(city='Jakarta'):
         return {
             'today': {'temp': 'N/A', 'description': 'Terjadi kesalahan', 'time': 'N/A', 'day': 'N/A'},
             'tomorrow': {'temp': 'N/A', 'description': 'Terjadi kesalahan', 'time': 'N/A', 'day': 'N/A'},
-            'yesterday': {'temp': 'N/A', 'description': 'Terjadi kesalahan', 'time': 'N/A', 'day': 'N/A'}
+            'day_after_tomorrow': {'temp': 'N/A', 'description': 'Terjadi kesalahan', 'time': 'N/A', 'day': 'N/A'}
         }
 
 @app.route('/')
