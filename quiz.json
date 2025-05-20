@@ -1,0 +1,114 @@
+{
+"quiz": [
+    {
+    "id": 1,
+    "question": "Apa itu kecerdasan buatan (AI)?",
+    "options": [
+        "Robot yang bisa main bola",
+        "Program yang bisa berpikir dan belajar",
+        "Kalkulator yang canggih",
+        "Game komputer"
+    ],
+    "answer": "Program yang bisa berpikir dan belajar"
+    },
+    {
+    "id": 2,
+    "question": "Library Python yang sering digunakan untuk AI adalah?",
+    "options": [
+        "pygame",
+        "pandas",
+        "numpy",
+        "tensorflow"
+    ],
+    "answer": "tensorflow"
+    },
+    {
+    "id": 3,
+    "question": "Apa itu visi komputer?",
+    "options": [
+        "Komputer yang bisa bicara",
+        "Komputer yang bisa melihat gambar",
+        "Komputer yang bisa mengetik sendiri",
+        "Komputer yang bisa bermain game"
+    ],
+    "answer": "Komputer yang bisa melihat gambar"
+    },
+    {
+    "id": 4,
+    "question": "Manakah yang termasuk contoh penggunaan visi komputer?",
+    "options": [
+        "Mengubah warna font",
+        "Mengenali wajah di foto",
+        "Membuat kalkulator",
+        "Menampilkan jam"
+    ],
+    "answer": "Mengenali wajah di foto"
+    },
+    {
+    "id": 5,
+    "question": "Apa itu NLP (Natural Language Processing)?",
+    "options": [
+        "Cara robot belajar berjalan",
+        "Cara komputer memahami bahasa manusia",
+        "Bahasa pemrograman baru",
+        "Cara membuat gambar 3D"
+    ],
+    "answer": "Cara komputer memahami bahasa manusia"
+    },
+    {
+    "id": 6,
+    "question": "Contoh aplikasi NLP adalah...",
+    "options": [
+        "Penerjemah bahasa otomatis",
+        "Kamera",
+        "Kalkulator",
+        "Pemutar musik"
+    ],
+    "answer": "Penerjemah bahasa otomatis"
+    },
+    {
+    "id": 7,
+    "question": "Untuk mengenali gambar, kita bisa pakai library...",
+    "options": [
+        "opencv",
+        "random",
+        "math",
+        "flask"
+    ],
+    "answer": "opencv"
+    },
+    {
+    "id": 8,
+    "question": "Apa langkah pertama sebelum melatih model AI?",
+    "options": [
+        "Makan siang",
+        "Menulis email",
+        "Mengumpulkan data",
+        "Menyalakan lampu"
+    ],
+    "answer": "Mengumpulkan data"
+    },
+    {
+    "id": 9,
+    "question": "Bagaimana cara menghubungkan model AI ke aplikasi Python?",
+    "options": [
+        "Menggunakan lem",
+        "Menyalin kode dari internet",
+        "Mengimpor model ke dalam script Python",
+        "Memasukkannya ke Word"
+    ],
+    "answer": "Mengimpor model ke dalam script Python"
+    },
+    {
+    "id": 10,
+    "question": "Flask dalam Python digunakan untuk?",
+    "options": [
+        "Memasak makanan",
+        "Menjalankan website sederhana",
+        "Menggambar",
+        "Memutar musik"
+    ],
+    "answer": "Menjalankan website sederhana"
+    }
+]
+}

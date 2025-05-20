@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Sign In</h1>
+    <!-- <h1>Sign In</h1>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -21,5 +21,63 @@
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit() }}</p>
     </form>
-    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p> -->
+    <div class="row g-0 align-items-center flex-lg-row-reverse min-vh-100">
+      <div class="col-lg-6 d-none d-lg-block bg-cover" style="background-image: url('/static/img/login-bg.jpg')"></div>
+      <div class="col-lg-6 px-lg-5">
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+          <div class="w-100" style="max-width: 400px;">
+            <!-- <div class="text-center mb-4">
+              <img src="/static/img/logo.svg" height="48" alt="tabler">
+            </div> -->
+            <div class="card card-md">
+              <div class="card-body">
+                <h2 class="h2 text-center mb-4">Login to your account</h2>
+                <form action="" method="post" autocomplete="off" novalidate>
+                  {{ form.hidden_tag() }}
+                  <div class="mb-3">
+                    <label class="form-label">{{ form.username.label }}</label>
+                    {{ form.username(class="form-control", placeholder="Username", autocomplete="off") }}
+                    {% for error in form.username.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label">
+                      {{ form.password.label }}
+                      <span class="form-label-description">
+                        <a href="./forgot-password.html">I forgot password</a>
+                      </span>
+                    </label>
+                    <div class="input-group input-group-flat">
+                      {{ form.password(class="form-control", placeholder="Your password", autocomplete="off") }}
+                      <span class="input-group-text">
+                        <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Show password" data-bs-original-title="Show password"><!-- Download SVG icon from http://tabler.io/icons/icon/eye -->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-1">
+                            <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                            <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"></path></svg></a>
+                      </span>
+                    </div>
+                    {% for error in form.password.errors %}
+                    
+                    {% endfor %}
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-check">
+                      {{ form.remember_me(class="form-check-input") }}
+                      <span class="form-check-label">{{ form.remember_me.label }}</span>
+                    </label>
+                  </div>
+                  <div class="form-footer">
+                    {{ form.submit(class="btn btn-primary w-100") }}
+                  </div>
+                </form>
+              </div>
+                
+            </div>
+            <div class="text-center text-secondary mt-3">Don't have account yet? <a href="{{ url_for('register') }}" tabindex="-1">Sign up</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}

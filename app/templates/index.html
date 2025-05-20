@@ -1,8 +1,93 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
+    <!-- <h1>Hi, {{ current_user.username }}!</h1>
     {% for post in posts %}
     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    {% endfor %} -->
+    <br>
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Dashboard</h3>
+                        
+                        <!-- Ramalan Cuaca -->
+                        <div class="weather-section mt-4">
+                            <h4 class="mb-3">Ramalan Cuaca Jakarta</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card bg-primary-lt">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Kemarin</h5>
+                                            <div class="weather-info">
+                                                <h2 class="temperature mb-2">{{ weather.yesterday.temp }}°C</h2>
+                                                <p class="description text-muted">{{ weather.yesterday.description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-primary-lt">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Hari Ini</h5>
+                                            <div class="weather-info">
+                                                <h2 class="temperature mb-2">{{ weather.today.temp }}°C</h2>
+                                                <p class="description text-muted">{{ weather.today.description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-primary-lt">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Besok</h5>
+                                            <div class="weather-info">
+                                                <h2 class="temperature mb-2">{{ weather.tomorrow.temp }}°C</h2>
+                                                <p class="description text-muted">{{ weather.tomorrow.description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h3 class="card-title">Scoreboard</h3>
+                    <table class="table table-sm table-borderless">
+                      <thead>
+                        <tr>
+                          <th>Username</th>
+                          <th class="text-end">Score</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for username, total_score in scoreboard %}
+                        <tr>
+                          <td>
+                            <div class="progressbg">
+                              <div class="progress progress-3 progressbg-progress">
+                                <div class="progress-bar bg-primary-lt" style="width: 100%" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Score">
+                                  <span class="visually-hidden">{{ total_score }} Point</span>
+                                </div>
+                              </div>
+                              <div class="progressbg-text">{{ username }}</div>
+                            </div>
+                          </td>
+                          <td class="w-1 fw-bold text-end">{{ total_score }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+    </div>
 {% endblock %}

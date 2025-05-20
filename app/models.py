@@ -14,9 +14,12 @@ class User(UserMixin, db.Model):
     email: so.Mapped[str] = so.mapped_column(sa.String(120), index=True,
                                             unique=True)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
+    points: so.Mapped[int] = so.mapped_column(sa.Integer, default=0)
 
     posts: so.WriteOnlyMapped['Post'] = so.relationship(
         back_populates='author')
+    assessments: so.WriteOnlyMapped['Assessment'] = so.relationship(
+        back_populates='user')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -42,3 +45,20 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
+class Assessment(db.Model):
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    user_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id), nullable=False)
+    score: so.Mapped[int] = so.mapped_column(sa.Integer, nullable=False)
+    total_questions: so.Mapped[int] = so.mapped_column(sa.Integer, nullable=False)
+    correct_answers: so.Mapped[int] = so.mapped_column(sa.Integer, nullable=False)
+    wrong_answers: so.Mapped[int] = so.mapped_column(sa.Integer, nullable=False)
+    timestamp: so.Mapped[datetime] = so.mapped_column(
+        index=True, default=lambda: datetime.now(timezone.utc))
+    questions: so.Mapped[Optional[dict]] = so.mapped_column(sa.JSON, nullable=False)
+    answers: so.Mapped[Optional[dict]] = so.mapped_column(sa.JSON, nullable=False)
+
+    user: so.Mapped[User] = so.relationship(back_populates='assessments')
+
+    def __repr__(self):
+        return f'<Assessment {self.id} - User {self.user_id} - Score {self.score}>'
