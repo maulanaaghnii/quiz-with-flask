@@ -109,6 +109,440 @@
         "Memutar musik"
     ],
     "answer": "Menjalankan website sederhana"
+    },
+    {
+    "id": 11,
+    "question": "Apa itu dataset?",
+    "options": [
+        "Kumpulan mainan",
+        "Kumpulan data untuk melatih komputer",
+        "Kumpulan buku",
+        "Kumpulan gambar"
+    ],
+    "answer": "Kumpulan data untuk melatih komputer"
+    },
+    {
+    "id": 12,
+    "question": "Apa yang bisa dilakukan dengan machine learning?",
+    "options": [
+        "Membuat robot bisa bermain game",
+        "Membuat komputer bisa belajar dari pengalaman",
+        "Membuat komputer lebih cepat",
+        "Membuat komputer lebih besar"
+    ],
+    "answer": "Membuat komputer bisa belajar dari pengalaman"
+    },
+    {
+    "id": 13,
+    "question": "Apa itu chatbot?",
+    "options": [
+        "Robot yang bisa menari",
+        "Program yang bisa berbicara dengan manusia",
+        "Game komputer",
+        "Aplikasi menggambar"
+    ],
+    "answer": "Program yang bisa berbicara dengan manusia"
+    },
+    {
+    "id": 14,
+    "question": "Apa yang bisa dilakukan dengan OpenCV?",
+    "options": [
+        "Membuat game",
+        "Mengenali warna dan bentuk dalam gambar",
+        "Membuat musik",
+        "Membuat animasi"
+    ],
+    "answer": "Mengenali warna dan bentuk dalam gambar"
+    },
+    {
+    "id": 15,
+    "question": "Apa itu model dalam machine learning?",
+    "options": [
+        "Mainan robot",
+        "Program yang sudah belajar dari data",
+        "Gambar komputer",
+        "Suara komputer"
+    ],
+    "answer": "Program yang sudah belajar dari data"
+    },
+    {
+    "id": 16,
+    "question": "Apa yang bisa dilakukan dengan TensorFlow?",
+    "options": [
+        "Membuat game",
+        "Membuat model machine learning",
+        "Membuat website",
+        "Membuat animasi"
+    ],
+    "answer": "Membuat model machine learning"
+    },
+    {
+    "id": 17,
+    "question": "Apa itu neural network?",
+    "options": [
+        "Jaringan komputer",
+        "Cara komputer belajar seperti otak manusia",
+        "Game online",
+        "Aplikasi chat"
+    ],
+    "answer": "Cara komputer belajar seperti otak manusia"
+    },
+    {
+    "id": 18,
+    "question": "Apa yang bisa dilakukan dengan NLP?",
+    "options": [
+        "Membuat robot berjalan",
+        "Membuat komputer mengerti bahasa manusia",
+        "Membuat game",
+        "Membuat animasi"
+    ],
+    "answer": "Membuat komputer mengerti bahasa manusia"
+    },
+    {
+    "id": 19,
+    "question": "Apa itu training data?",
+    "options": [
+        "Data untuk bermain game",
+        "Data untuk melatih komputer",
+        "Data untuk menggambar",
+        "Data untuk bermain musik"
+    ],
+    "answer": "Data untuk melatih komputer"
+    },
+    {
+    "id": 20,
+    "question": "Apa yang bisa dilakukan dengan computer vision?",
+    "options": [
+        "Membuat komputer bisa melihat dan mengenali gambar",
+        "Membuat komputer bisa berbicara",
+        "Membuat komputer bisa menari",
+        "Membuat komputer bisa bernyanyi"
+    ],
+    "answer": "Membuat komputer bisa melihat dan mengenali gambar"
+    },
+    {
+    "id": 21,
+    "question": "Apa itu deep learning?",
+    "options": [
+        "Belajar di dalam air",
+        "Cara komputer belajar dengan banyak lapisan",
+        "Belajar di malam hari",
+        "Belajar di dalam gua"
+    ],
+    "answer": "Cara komputer belajar dengan banyak lapisan"
+    },
+    {
+    "id": 22,
+    "question": "Apa yang bisa dilakukan dengan face recognition?",
+    "options": [
+        "Mengenali wajah orang dalam foto",
+        "Membuat wajah baru",
+        "Mengubah warna wajah",
+        "Membuat wajah lucu"
+    ],
+    "answer": "Mengenali wajah orang dalam foto"
+    },
+    {
+    "id": 23,
+    "question": "Apa itu sentiment analysis?",
+    "answer": "Mengenali perasaan dari teks"
+    },
+    {
+    "id": 24,
+    "question": "Apa yang bisa dilakukan dengan speech recognition?",
+    "options": [
+        "Mengubah suara menjadi teks",
+        "Membuat suara baru",
+        "Mengubah volume suara",
+        "Membuat lagu"
+    ],
+    "answer": "Mengubah suara menjadi teks"
+    },
+    {
+    "id": 25,
+    "question": "Apa itu data preprocessing?",
+    "options": [
+        "Menyiapkan data sebelum diproses komputer",
+        "Membuat data baru",
+        "Menghapus data",
+        "Mengubah warna data"
+    ],
+    "answer": "Menyiapkan data sebelum diproses komputer"
+    },
+    {
+    "id": 26,
+    "question": "Apa yang bisa dilakukan dengan object detection?",
+    "options": [
+        "Mengenali benda dalam gambar",
+        "Membuat benda baru",
+        "Mengubah bentuk benda",
+        "Menghapus benda"
+    ],
+    "answer": "Mengenali benda dalam gambar"
+    },
+    {
+    "id": 27,
+    "question": "Apa itu transfer learning?",
+    "options": [
+        "Menggunakan pengetahuan yang sudah ada",
+        "Mengirim file",
+        "Mengubah warna",
+        "Membuat game baru"
+    ],
+    "answer": "Menggunakan pengetahuan yang sudah ada"
+    },
+    {
+    "id": 28,
+    "question": "Apa yang bisa dilakukan dengan text classification?",
+    "options": [
+        "Mengelompokkan teks berdasarkan jenisnya",
+        "Mengubah warna teks",
+        "Membuat teks baru",
+        "Menghapus teks"
+    ],
+    "answer": "Mengelompokkan teks berdasarkan jenisnya"
+    },
+    {
+    "id": 29,
+    "question": "Apa itu image segmentation?",
+    "options": [
+        "Memisahkan bagian-bagian dalam gambar",
+        "Menggabungkan gambar",
+        "Mengubah ukuran gambar",
+        "Menghapus gambar"
+    ],
+    "answer": "Memisahkan bagian-bagian dalam gambar"
+    },
+    {
+    "id": 30,
+    "question": "Apa yang bisa dilakukan dengan recommendation system?",
+    "options": [
+        "Memberikan saran berdasarkan kesukaan",
+        "Membuat game baru",
+        "Mengubah warna",
+        "Menghapus data"
+    ],
+    "answer": "Memberikan saran berdasarkan kesukaan"
+    },
+    {
+    "id": 31,
+    "question": "Apa itu reinforcement learning?",
+    "options": [
+        "Belajar dari pengalaman dan hadiah",
+        "Belajar di sekolah",
+        "Belajar di rumah",
+        "Belajar di taman"
+    ],
+    "answer": "Belajar dari pengalaman dan hadiah"
+    },
+    {
+    "id": 32,
+    "question": "Apa yang bisa dilakukan dengan image generation?",
+    "options": [
+        "Membuat gambar baru dengan komputer",
+        "Mengubah warna gambar",
+        "Menghapus gambar",
+        "Mengubah ukuran gambar"
+    ],
+    "answer": "Membuat gambar baru dengan komputer"
+    },
+    {
+    "id": 33,
+    "question": "Apa itu data augmentation?",
+    "options": [
+        "Menambah variasi data",
+        "Mengurangi data",
+        "Menghapus data",
+        "Mengubah warna data"
+    ],
+    "answer": "Menambah variasi data"
+    },
+    {
+    "id": 34,
+    "question": "Apa yang bisa dilakukan dengan voice assistant?",
+    "options": [
+        "Membantu dengan perintah suara",
+        "Membuat suara baru",
+        "Mengubah volume",
+        "Membuat lagu"
+    ],
+    "answer": "Membantu dengan perintah suara"
+    },
+    {
+    "id": 35,
+    "question": "Apa itu feature extraction?",
+    "options": [
+        "Mengambil ciri-ciri penting dari data",
+        "Membuat data baru",
+        "Menghapus data",
+        "Mengubah warna data"
+    ],
+    "answer": "Mengambil ciri-ciri penting dari data"
+    },
+    {
+    "id": 36,
+    "question": "Apa yang bisa dilakukan dengan style transfer?",
+    "options": [
+        "Mengubah gaya gambar",
+        "Mengubah ukuran gambar",
+        "Menghapus gambar",
+        "Membuat gambar baru"
+    ],
+    "answer": "Mengubah gaya gambar"
+    },
+    {
+    "id": 37,
+    "question": "Apa itu anomaly detection?",
+    "options": [
+        "Mendeteksi hal yang tidak biasa",
+        "Membuat data baru",
+        "Mengubah warna",
+        "Menghapus data"
+    ],
+    "answer": "Mendeteksi hal yang tidak biasa"
+    },
+    {
+    "id": 38,
+    "question": "Apa yang bisa dilakukan dengan text generation?",
+    "options": [
+        "Membuat teks baru dengan komputer",
+        "Mengubah warna teks",
+        "Menghapus teks",
+        "Mengubah ukuran teks"
+    ],
+    "answer": "Membuat teks baru dengan komputer"
+    },
+    {
+    "id": 39,
+    "question": "Apa itu clustering?",
+    "options": [
+        "Mengelompokkan data yang mirip",
+        "Membuat data baru",
+        "Menghapus data",
+        "Mengubah warna data"
+    ],
+    "answer": "Mengelompokkan data yang mirip"
+    },
+    {
+    "id": 40,
+    "question": "Apa yang bisa dilakukan dengan pose estimation?",
+    "options": [
+        "Mendeteksi posisi tubuh dalam gambar",
+        "Membuat gambar baru",
+        "Mengubah warna gambar",
+        "Menghapus gambar"
+    ],
+    "answer": "Mendeteksi posisi tubuh dalam gambar"
+    },
+    {
+    "id": 41,
+    "question": "Apa itu data validation?",
+    "options": [
+        "Memeriksa data sudah benar",
+        "Membuat data baru",
+        "Menghapus data",
+        "Mengubah warna data"
+    ],
+    "answer": "Memeriksa data sudah benar"
+    },
+    {
+    "id": 42,
+    "question": "Apa yang bisa dilakukan dengan image captioning?",
+    "options": [
+        "Membuat deskripsi untuk gambar",
+        "Mengubah warna gambar",
+        "Menghapus gambar",
+        "Membuat gambar baru"
+    ],
+    "answer": "Membuat deskripsi untuk gambar"
+    },
+    {
+    "id": 43,
+    "question": "Apa itu model evaluation?",
+    "options": [
+        "Menguji seberapa baik model bekerja",
+        "Membuat model baru",
+        "Menghapus model",
+        "Mengubah warna model"
+    ],
+    "answer": "Menguji seberapa baik model bekerja"
+    },
+    {
+    "id": 44,
+    "question": "Apa yang bisa dilakukan dengan text summarization?",
+    "options": [
+        "Membuat ringkasan teks",
+        "Mengubah warna teks",
+        "Menghapus teks",
+        "Membuat teks baru"
+    ],
+    "answer": "Membuat ringkasan teks"
+    },
+    {
+    "id": 45,
+    "question": "Apa itu data normalization?",
+    "options": [
+        "Menyamakan skala data",
+        "Membuat data baru",
+        "Menghapus data",
+        "Mengubah warna data"
+    ],
+    "answer": "Menyamakan skala data"
+    },
+    {
+    "id": 46,
+    "question": "Apa yang bisa dilakukan dengan image enhancement?",
+    "options": [
+        "Memperbaiki kualitas gambar",
+        "Mengubah ukuran gambar",
+        "Menghapus gambar",
+        "Membuat gambar baru"
+    ],
+    "answer": "Memperbaiki kualitas gambar"
+    },
+    {
+    "id": 47,
+    "question": "Apa itu model deployment?",
+    "options": [
+        "Menggunakan model di aplikasi",
+        "Membuat model baru",
+        "Menghapus model",
+        "Mengubah warna model"
+    ],
+    "answer": "Menggunakan model di aplikasi"
+    },
+    {
+    "id": 48,
+    "question": "Apa yang bisa dilakukan dengan text translation?",
+    "options": [
+        "Menerjemahkan teks ke bahasa lain",
+        "Mengubah warna teks",
+        "Menghapus teks",
+        "Membuat teks baru"
+    ],
+    "answer": "Menerjemahkan teks ke bahasa lain"
+    },
+    {
+    "id": 49,
+    "question": "Apa itu data cleaning?",
+    "options": [
+        "Membersihkan data yang tidak perlu",
+        "Membuat data baru",
+        "Mengubah warna data",
+        "Menghapus semua data"
+    ],
+    "answer": "Membersihkan data yang tidak perlu"
+    },
+    {
+    "id": 50,
+    "question": "Apa yang bisa dilakukan dengan image classification?",
+    "options": [
+        "Mengelompokkan gambar berdasarkan jenisnya",
+        "Mengubah warna gambar",
+        "Menghapus gambar",
+        "Membuat gambar baru"
+    ],
+    "answer": "Mengelompokkan gambar berdasarkan jenisnya"
     }
 ]
 }
