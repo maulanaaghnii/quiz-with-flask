@@ -21,34 +21,34 @@ def load_quiz_questions():
         return selected_questions
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
+    username = StringField('Nama Pengguna', validators=[DataRequired()])
+    password = PasswordField('Kata Sandi', validators=[DataRequired()])
+    remember_me = BooleanField('Ingat Saya')
+    submit = SubmitField('Masuk')
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    username = StringField('Nama Pengguna', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField('Kata Sandi', validators=[DataRequired()])
     password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Register')
+        'Ulangi Kata Sandi', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Daftar')
 
     def validate_username(self, username):
         user = db.session.scalar(sa.select(User).where(
             User.username == username.data))
         if user is not None:
-            raise ValidationError('Please use a different username.')
+            raise ValidationError('Nama pengguna sudah digunakan. Silakan gunakan nama pengguna lain.')
 
     def validate_email(self, email):
         user = db.session.scalar(sa.select(User).where(
             User.email == email.data))
         if user is not None:
-            raise ValidationError('Please use a different email address.')
+            raise ValidationError('Email sudah digunakan. Silakan gunakan email lain.')
         
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    username = StringField('Nama Pengguna', validators=[DataRequired()])
+    submit = SubmitField('Simpan')
 
     def __init__(self, original_username, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -59,10 +59,10 @@ class EditProfileForm(FlaskForm):
             user = db.session.scalar(sa.select(User).where(
                 User.username == username.data))
             if user is not None:
-                raise ValidationError('Please use a different username.')
+                raise ValidationError('Nama pengguna sudah digunakan. Silakan gunakan nama pengguna lain.')
 
 class QuizForm(FlaskForm):
-    submit = SubmitField('Submit')
+    submit = SubmitField('Kirim Jawaban')
 
     def __init__(self, questions=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -91,4 +91,14 @@ class QuizForm(FlaskForm):
                 else:
                     wrong_answers += 1
         return score, correct_answers, wrong_answers
+
+class ForgotPasswordForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Kirim Kode Recovery')
+
+class ResetPasswordForm(FlaskForm):
+    recovery_code = StringField('Kode Recovery', validators=[DataRequired()])
+    password = PasswordField('Password Baru', validators=[DataRequired()])
+    password2 = PasswordField('Konfirmasi Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Reset Password')
     

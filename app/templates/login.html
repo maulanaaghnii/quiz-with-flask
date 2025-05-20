@@ -32,12 +32,12 @@
             </div> -->
             <div class="card card-md">
               <div class="card-body">
-                <h2 class="h2 text-center mb-4">Login to your account</h2>
+                <h2 class="h2 text-center mb-4">Masuk ke akun Anda</h2>
                 <form action="" method="post" autocomplete="off" novalidate>
                   {{ form.hidden_tag() }}
                   <div class="mb-3">
                     <label class="form-label">{{ form.username.label }}</label>
-                    {{ form.username(class="form-control", placeholder="Username", autocomplete="off") }}
+                    {{ form.username(class="form-control", placeholder="Nama pengguna", autocomplete="off") }}
                     {% for error in form.username.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
@@ -46,20 +46,20 @@
                     <label class="form-label">
                       {{ form.password.label }}
                       <span class="form-label-description">
-                        <a href="./forgot-password.html">I forgot password</a>
+                        <a href="{{ url_for('forgot_password') }}">Lupa kata sandi</a>
                       </span>
                     </label>
                     <div class="input-group input-group-flat">
-                      {{ form.password(class="form-control", placeholder="Your password", autocomplete="off") }}
+                      {{ form.password(class="form-control", placeholder="Kata sandi Anda", autocomplete="off") }}
                       <span class="input-group-text">
-                        <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Show password" data-bs-original-title="Show password"><!-- Download SVG icon from http://tabler.io/icons/icon/eye -->
+                        <a href="#" class="link-secondary" data-bs-toggle="tooltip" aria-label="Tampilkan kata sandi" data-bs-original-title="Tampilkan kata sandi">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-1">
                             <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
                             <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"></path></svg></a>
                       </span>
                     </div>
                     {% for error in form.password.errors %}
-                    
+                    <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                   </div>
                   <div class="mb-2">
@@ -73,9 +73,8 @@
                   </div>
                 </form>
               </div>
-                
             </div>
-            <div class="text-center text-secondary mt-3">Don't have account yet? <a href="{{ url_for('register') }}" tabindex="-1">Sign up</a></div>
+            <div class="text-center text-secondary mt-3">Belum punya akun? <a href="{{ url_for('register') }}" tabindex="-1">Daftar</a></div>
           </div>
         </div>
       </div>
